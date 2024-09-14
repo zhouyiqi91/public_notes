@@ -20,7 +20,6 @@ Steps
 4. Keep the barcodes above an UMI threshold, similar to the knee filtering method used in single cell RNA.
 5. Match the barcodes obtained from sCircle with the cell barcodes obtained from the single-cell RNA.
 
-
 ### alignment and annotation of TCR sequences
 
 TRUST4 uses kmer count to avoid the time-consuming alignment in the candidate reads extraction algorithm. The details of the annotation can be found in the TRUST4 paper：https://www.nature.com/articles/s41592-021-01142-2
@@ -32,6 +31,10 @@ The high-confidence cell-barcode is determined by matching the barcode in the fi
 ### pairing of alpha and beta T cell receptor chains
 
 We use the "Cells With Productive V-J Spanning Pair" metric to measure TCR receptor chain pairing. That is, the number of cells with at least one productive alpha contig and one productive beta contig.
+
+### clonotypes
+
+Clonotypes are defined as cell barcodes that share exactly the same productive CDR3 nucleotide sequences.
 
 ## single cell RNA (GEXSCOPE) pipeline 
 Use subcommand `multi_rna` of CeleScope or 
