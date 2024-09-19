@@ -5,7 +5,7 @@ variant注释用的[Annovar](https://annovar.openbioinformatics.org/en/latest/).
 
 # 将support matrix读入Seurat
 
-处理输出文件，生成可以读入Seurat的upport_mtx目录。
+处理输出文件，生成可以读入Seurat的support_mtx目录。
 ```shell
 mkdir support_mtx
 # barcode
