@@ -54,29 +54,26 @@ variant_23 1 633372 T C                 . . . 2 . . . . . . . . . . . . 2 . . .
 ```
 
 # 文件说明
-{sample}_VID.tsv：
-为每个变异分配的唯一数字ID（VID）。
 
-{sample}_CID.tsv：
-为每个细胞分配的唯一数字ID（CID）。
+- 为了方便记录，每个细胞barcode对应1个ID（CID）, 每个变异也对应1个ID(VID)。
 
-{sample}_RID.tsv（仅在提供--panel选项时生成）：
-为每个目标区域分配的唯一数字ID（RID）。
+- 在基因组学和变异检测中，ref 和 alt 分别代表：
 
-{sample}_merged.vcf：
-包含所有细胞的所有变异的VCF文件。VID和CID会被添加到INFO列中。
+ref（reference）：参考等位基因，表示在参考基因组中存在的标准序列。例如，在人类基因组项目中，使用的参考基因组是由代表人类基因组的序列构成的，其中每个位置的碱基称为参考碱基。
 
-{sample}_filter.vcf：
-经过过滤后的VCF文件。无效的CID会从INFO列中移除。
+alt（alternative）：替代等位基因，表示与参考基因组序列不同的变异序列。它代表在样本中检测到的碱基替换、插入或缺失。
 
-{sample}_variant_count.tsv：
-记录参考和变异支持的读取/UMI（唯一分子标识）计数。
+举例：
+假设基因组的某个位置在参考序列中是碱基A，但在一个个体的序列中，这个位置是碱基G。
 
-{sample}_filter_variant_count.tsv：
-过滤后的参考和变异支持读取/UMI计数。
+ref: A（参考基因组中的碱基）
+alt: G（在样本中发现的替代碱基）
+这表明这个个体在该位置有一个碱基替换变异。
 
-{sample}_support.mtx：
+ref_count和alt_count是指某个位点，支持ref和alt的read数目。
+
+- {sample}_support.mtx：
 以Matrix Market Exchange格式输出的支持矩阵。行表示变异（VID），列表示细胞（CID）。值可以是1、2或3：
-1：位置上的所有读取/UMI支持参考等位基因。
-2：位置上的所有读取/UMI支持变异等位基因。
-3：一个或多个读取/UMI同时支持参考和变异等位基因。
+1：该位置上的所有read支持ref。
+2：该位置上的所有read支持alt。
+3：该位置上既有支持ref，也有支持alt的read。
